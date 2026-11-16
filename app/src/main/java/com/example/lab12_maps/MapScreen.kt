@@ -11,7 +11,6 @@ import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
-
 @Composable
 fun MapScreen() {
     val ArequipaLocation = LatLng(-16.4040102, -71.559611)
@@ -19,6 +18,7 @@ fun MapScreen() {
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(ArequipaLocation, 12f)
     }
+
     Box(modifier = Modifier.fillMaxSize()) {
         GoogleMap(
             modifier = Modifier.fillMaxSize(),
@@ -29,6 +29,18 @@ fun MapScreen() {
                 icon = BitmapDescriptorFactory.fromResource(R.drawable.montana),
                 title = "Arequipa, Perú"
             )
+            val locations = listOf(
+                LatLng(-16.433415, -71.5442652),
+                LatLng(-16.4205151, -71.4945209),
+                LatLng(-16.3524187, -71.5675994)
+            )
+            locations.forEach { location ->
+                Marker(
+                    state = rememberMarkerState(position = location),
+                    title = "Ubicación",
+                    snippet = "Punto de interés"
+                )
+            }
         }
     }
 }

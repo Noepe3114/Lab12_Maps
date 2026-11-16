@@ -56,6 +56,9 @@ dependencies {
     implementation("com.google.maps.android:maps-compose:$mapsComposeVersion")
     implementation("com.google.maps.android:maps-compose-utils:$mapsComposeVersion")
     implementation("com.google.maps.android:maps-compose-widgets:$mapsComposeVersion")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("androidx.compose.runtime:runtime")
+    implementation("androidx.compose.foundation:foundation")
 }
 secrets {
     propertiesFileName = "secrets.properties"
